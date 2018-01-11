@@ -1,0 +1,30 @@
+{
+  "name": "vue-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha-webpack --webpack-config webpack.config.js --require test/setup.js test/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/telosma/vue-test.git"
+  },
+  "keywords": [],
+  "author": "duylx <duylxbk57@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/telosma/vue-test/issues"
+  },
+  "homepage": "https://github.com/telosma/vue-test#readme",
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.10",
+    "expect": "^22.0.5",
+    "jsdom": "^11.5.1",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^4.1.0",
+    "mocha-webpack": "^1.0.1",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^3.10.0"
+  }
+}
