@@ -5,4 +5,6 @@ Training test
 ### install package
 `npm install`
 ### run test
-`npm run test`
+`npm test`
+### watching test
+`npm run watch`
