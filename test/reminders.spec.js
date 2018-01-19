@@ -17,7 +17,19 @@ describe ('Reminder', () => {
 
     addReminder('Go to the store')
 
-    expect(wrapper.find('ul').text()).toContain('Go to the store')
+    expect(reminderList()).toContain('Go to the store')
+  })
+
+  it.only ('can remove any reminders', () => {
+    addReminder('Go to the store')
+    addReminder('Finish screencast')
+
+    let deleteButton = wrapper.find('ul > li:first-child .remove')
+
+    deleteButton.trigger('click')
+
+    expect(reminderList()).not.toContain('Go to the store')
+    expect(reminderList()).toContain('Finish screencast')
   })
 
   function addReminder(body) {
@@ -27,5 +39,9 @@ describe ('Reminder', () => {
     newReminder.trigger('input')
 
     wrapper.find('button').trigger('click')
+  }
+
+  function reminderList () {
+    return wrapper.find('ul').text()
   }
 })
