@@ -4,7 +4,8 @@
     <button class="button" @click="addReminder">Add Reminder</button>
 
     <ul v-if="reminders.length">
-      <li v-for="reminder in reminders" v-text="reminder" :key="reminder">
+      <li v-for="reminder in reminders" :key="reminder">
+        {{ reminder }}
         <button class="remove" @click="remove(reminder)">Remove</button>
       </li>
     </ul>

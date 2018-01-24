@@ -20,7 +20,7 @@ describe ('Reminder', () => {
     expect(reminderList()).toContain('Go to the store')
   })
 
-  it.only ('can remove any reminders', () => {
+  it ('can remove any reminders', () => {
     addReminder('Go to the store')
     addReminder('Finish screencast')
 
