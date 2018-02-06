@@ -8,7 +8,7 @@ describe ('Question', () => {
     beforeEach(() => {
         wrapper = mount(Question, {
             propsData: {
-                question: {
+                dataQuestion: {
                     title: 'The Title',
                     body: 'The Body'
                 }
@@ -40,22 +40,32 @@ describe ('Question', () => {
         // wrapper.find('input[name=tile]').element.value = 'Change Title'
         // wrapper.find('input[name=title]').trigger('input')
         type('input[name=title]', 'Change Title')
-        type('input[name=body]', 'Change Body')
+        type('textarea[name=body]', 'Change Body')
 
-       click('#update')
+        click('#update')
 
-       see('The Title')
-       see('The Body')
+        see('Change Title')
+        see('Change Body')
+    })
+
+    it('can cancel out of edit mode', () => {
+        click('#edit')
+
+        type('input[name=title]', 'Change Title')
+
+        click('#cancel')
+
+        see('The Title')
     })
 
     let see = (text, selector) => {
         let wrap = selector ? wrapper.find(selector) : wrapper
 
-        expect(wrap.html()).toContain('The Title')
+        expect(wrap.html()).toContain(text)
     }
 
     let type = (selector, text) => {
-        let node = wrapper.find('selector')
+        let node = wrapper.find(selector)
 
         node.element.value = text
         node.trigger('input')

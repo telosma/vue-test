@@ -10,10 +10,11 @@
 
     <!-- Editing the question. -->
     <div v-if="editing">
-      <input type="text" name="title" v-model="question.title">
-      <textarea name="body" v-text="question.body"></textarea>
+      <input type="text" name="title" v-model="form.title">
+      <textarea name="body" v-model="form.body"></textarea>
 
-      <button id="update" @click="editing = false">Update</button>
+      <button id="update" @click="change">Update</button>
+      <button id="cancel" @click="cancel">Cancel</button>
     </div>
   </div>
 </template>
@@ -21,11 +22,29 @@
 <script>
   export default {
     props: [
-      'question'
+      'dataQuestion'
     ],
 
-    data: () => ({
-      editing: false,
-    })
+    data () {
+      return {
+        editing: false,
+        question: this.dataQuestion,
+        form: {
+          title: this.dataQuestion.title,
+          body: this.dataQuestion.body
+        }
+      }
+    },
+
+    methods: {
+      cancel () {
+        this.editing = false
+      },
+      change () {
+        this.question.title = this.form.title
+        this.question.body = this.form.body
+        this.editing = false
+      }
+    }
   }
 </script>
