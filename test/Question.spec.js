@@ -49,7 +49,7 @@ describe ('Question', () => {
         type('input[name=title]', 'Change Title')
         type('textarea[name=body]', 'Change Body')
 
-        moxios.stubRequest('/questions/1', {
+        moxios.stubRequest(/questions\/\d+/, {
             status: 200,
             responseText: {
                 title: 'Changed Title',
