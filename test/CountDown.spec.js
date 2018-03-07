@@ -10,7 +10,7 @@ describe ('Countdown', () => {
         wrapper = mount(Countdown)
     })
 
-    it ('renders a Countdown timer', () => {
+    it.only ('renders a Countdown timer', () => {
         wrapper.setProps({ util: moment().add(10, 'seconds') })
 
         see('10 seconds')
