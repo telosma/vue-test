@@ -41,7 +41,7 @@ describe ('Question', () => {
         expect(wrapper.contains('#edit')).toBe(false)
     })
 
-    it.only('update the question after being edited', (done) => {
+    it('update the question after being edited', (done) => {
         click('#edit')
 
         // wrapper.find('input[name=tile]').element.value = 'Change Title'
